@@ -1,9 +1,18 @@
 let start = document.getElementById(`generate`);
+let cancel = document.getElementById(`cancel`)
 let iter = 100;
 
 start.addEventListener(`click`,
-    function(){
+    function () {
         main()
+        buttons(`show`)
+    }
+)
+
+cancel.addEventListener(`click`,
+    function () {
+        buttons()
+        remove()
     }
 )
 
@@ -15,7 +24,7 @@ start.addEventListener(`click`,
 //         //Soluzione per non usare un array con lo switch
 //         let i3 = (i%3);
 //         let i5 = (i%5);
-        
+
 //         modul = (`${i3}${i5}`);
 
 //         // console.log(`${modul}`);
@@ -52,20 +61,38 @@ start.addEventListener(`click`,
 //     }
 // }
 
-function main(){
-    for(let i = 1; i<=iter; i++){
-        if (((i%3)==0) && ((i%5)==0)){
+function main() {
+    for (let i = 1; i <= iter; i++) {
+        if (((i % 3) == 0) && ((i % 5) == 0)) {
             //console.log("15");
-            document.getElementById(`list`).innerHTML += `<li class="col bg-danger"><p>FizzBuzz</p></li>` 
-        } else if ((i%3)==0) {
+            document.getElementById(`list`).innerHTML += `<li class="col bg-danger"><p>FizzBuzz</p></li>`
+        } else if ((i % 3) == 0) {
             //console.log(`3`);
             document.getElementById(`list`).innerHTML += `<li class="col bg-success"><p>Fizz</p></li>`
-        } else if ((i%5)==0) {
+        } else if ((i % 5) == 0) {
             //console.log(`5`);
-            document.getElementById(`list`).innerHTML += `<li class="col bg-warning"><p>Buzz</p></li>` 
+            document.getElementById(`list`).innerHTML += `<li class="col bg-warning"><p>Buzz</p></li>`
         } else {
             //console.log(`default`);
-            document.getElementById(`list`).innerHTML += `<li class="col bg-secondary"><p>${i}</p></li>` 
+            document.getElementById(`list`).innerHTML += `<li class="col bg-secondary"><p>${i}</p></li>`
         }
+    }
+}
+
+function buttons(x) {
+    if (x == `show`) {
+        start.classList.add(`d-none`);
+        cancel.classList.remove(`d-none`);
+    } else {
+        start.classList.remove(`d-none`);
+        cancel.classList.add(`d-none`);
+    }
+
+}
+
+function remove() {
+    let list = document.getElementById(`list`);
+    while (list.firstChild) {
+        list.removeChild(list.firstChild);
     }
 }
