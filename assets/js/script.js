@@ -56,16 +56,16 @@ function main(){
     for(let i = 1; i<=iter; i++){
         if (((i%3)==0) && ((i%5)==0)){
             //console.log("15");
-            document.getElementById(`list`).innerHTML += `<li class="col bg-danger">FizzBuzz</li>` 
+            document.getElementById(`list`).innerHTML += `<li class="col bg-danger"><p>FizzBuzz</p></li>` 
         } else if ((i%3)==0) {
             //console.log(`3`);
-            document.getElementById(`list`).innerHTML += `<li class="col bg-success">Fizz</li>`
+            document.getElementById(`list`).innerHTML += `<li class="col bg-success"><p>Fizz</p></li>`
         } else if ((i%5)==0) {
             //console.log(`5`);
-            document.getElementById(`list`).innerHTML += `<li class="col bg-warning">Buzz</li>` 
+            document.getElementById(`list`).innerHTML += `<li class="col bg-warning"><p>Buzz</p></li>` 
         } else {
             //console.log(`default`);
-            document.getElementById(`list`).innerHTML += `<li class="col bg-secondary">${i}</li>` 
+            document.getElementById(`list`).innerHTML += `<li class="col bg-secondary"><p>${i}</p></li>` 
         }
     }
 }
