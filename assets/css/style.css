@@ -25,9 +25,6 @@ html {
 	border-color: #c60000;
 }
 
-ul {
-}
-
 li {
 	min-width: calc((100vw / 12) - 10px);
 	min-height: calc((100vw / 12) - 10px);
